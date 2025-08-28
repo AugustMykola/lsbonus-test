@@ -1,0 +1,42 @@
+@for (field of fields(); track field) {
+  <div style="margin-top: 30px">
+    <p-float-label>
+      @switch (field.type) {
+        @case (InputType.TEXT_INPUT) {
+          <ng-container [ngTemplateOutlet]="textInputField" [ngTemplateOutletContext]="{ field }"></ng-container>
+        }
+        @case (InputType.NUMBER_INPUT) {
+          <ng-container [ngTemplateOutlet]="numberInputField" [ngTemplateOutletContext]="{ field }"></ng-container>
+        }
+      }
+      <label [for]="field.key">{{ field.text }}</label>
+    </p-float-label>
+
+  </div>
+}
+
+<ng-template #textInputField let-field="field">
+  <input
+    pInputText
+    [id]="field.key"
+    type="text"
+    [formControlName]="field.key"
+    (blur)="onFieldEvent('onBlur', $event, field)"
+    (input)="onFieldEvent('onInput', $event, field)"
+    (focus)="onFieldEvent('onFocus', $event, field)"
+  />
+</ng-template>
+
+<ng-template #numberInputField let-field="field">
+  <p-inputNumber
+    [inputId]="field.key"
+    [formControlName]="field.key"
+    mode="decimal"
+    [useGrouping]="false"
+    [minFractionDigits]="0"
+    [maxFractionDigits]="6"
+    (onBlur)="onFieldEvent('onBlur', $event, field)"
+    (onInput)="onFieldEvent('onInput', $event, field)"
+    (onFocus)="onFieldEvent('onFocus', $event, field)"
+  ></p-inputNumber>
+</ng-template>

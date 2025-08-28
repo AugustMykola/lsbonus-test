@@ -1,0 +1,15 @@
+<form [formGroup]="form()">
+  <p-card>
+    @if (facadeBuilderService.schema()) {
+      <div [style.color]="facadeBuilderService.color()">
+        <h3 class="m-0">{{ facadeBuilderService.text() }}</h3>
+        <app-elements-creator
+          [fields]="facadeBuilderService.fields()"
+          (fieldEvent)="onFieldEvent($event)"
+        >
+
+        </app-elements-creator>
+      </div>
+    }
+  </p-card>
+</form>
