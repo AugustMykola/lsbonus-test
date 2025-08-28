@@ -1,10 +1,10 @@
-import {computed, Injectable, Signal, signal, WritableSignal} from '@angular/core';
-import {ISchema} from '../../models/ISchemaRequest';
-import {IElement} from '../../models/IElement';
-import {IFieldConfig} from '../../models/IFieldConfig';
+import { computed, Injectable, Signal, signal, WritableSignal } from '@angular/core';
+import { ISchema } from '../../models/ISchemaRequest';
+import { IElement } from '../../models/IElement';
+import { IFieldConfig } from '../../models/IFieldConfig';
 
 @Injectable()
-export class FacadeBuilderService {
+export class FieldViewMapperService {
   schema: WritableSignal<ISchema | null> = signal<ISchema | null>(null);
 
   fields: Signal<IFieldConfig[]> = computed((): IFieldConfig[] => {

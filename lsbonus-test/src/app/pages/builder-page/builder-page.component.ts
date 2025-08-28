@@ -1,7 +1,7 @@
 import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { FacadeBuilderService } from '../../providers/facade/facade-builder.service';
+import { FieldViewMapperService } from '../../providers/field-view-mapper/field-view-mapper.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Card } from 'primeng/card';
 import { ElementsCreatorComponent } from '../../components/elements-creator/elements-creator.component';
@@ -13,7 +13,7 @@ import { ElementsCreatorComponent } from '../../components/elements-creator/elem
     Card,
     ElementsCreatorComponent
   ],
-  providers: [FacadeBuilderService],
+  providers: [FieldViewMapperService],
   templateUrl: './builder-page.component.html',
   styleUrl: './builder-page.component.scss'
 })
@@ -22,7 +22,7 @@ export class BuilderPageComponent implements OnInit, OnDestroy {
   private route: ActivatedRoute = inject(ActivatedRoute);
   private subscription: Subscription = new Subscription();
 
-  public facadeBuilderService: FacadeBuilderService = inject(FacadeBuilderService);
+  public facadeBuilderService: FieldViewMapperService = inject(FieldViewMapperService);
   public form = signal<FormGroup>(this.fb.group({}));
 
   ngOnInit(): void {

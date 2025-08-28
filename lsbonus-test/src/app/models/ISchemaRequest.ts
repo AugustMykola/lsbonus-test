@@ -1,7 +1,8 @@
-import {IElement} from './IElement';
+import { IElement } from './IElement';
+import { IRequestResult } from './IRequestResult';
 
 export interface ISchemaRequest {
-  result: any;
+  result: IRequestResult;
   schema: ISchema;
 }
 

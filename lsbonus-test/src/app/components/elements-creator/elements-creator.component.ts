@@ -10,7 +10,6 @@ import {InputType} from '../../enums/input-type';
 
 @Component({
   selector: 'app-elements-creator',
-  standalone: true,
   imports: [ReactiveFormsModule, NgTemplateOutlet, InputText, InputNumberModule, FloatLabel],
   templateUrl: './elements-creator.component.html',
   styleUrl: './elements-creator.component.scss',

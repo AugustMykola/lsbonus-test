@@ -8,7 +8,7 @@ import { environment } from '../../../../environment/environment';
 })
 export class AuthService {
   private http: HttpClient = inject(HttpClient);
-  sid: any = signal<string | null>(null);
+  sid = signal<string | null>(null);
 
   sendLoginRequest(): Observable<string> {
     const body = {
